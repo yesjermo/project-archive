@@ -1,0 +1,109 @@
+body > header.room-toolbar {
+  height: 82px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  position: relative;
+  border: 0;
+  z-index: 30;
+  background: transparent;
+  max-width: none;
+  margin: 0;
+}
+.room-toolbar > div {
+  display: flex;
+  gap: 10px;
+}
+.room-toolbar .room-home,
+.page-about header .room-home {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  font:
+    24px Archive Hand,
+    cursive !important;
+  background: #f8f4e9 !important;
+  padding: 9px 20px;
+  box-shadow: 0 4px 5px #322a1f12 !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.room-toolbar .circle {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px !important;
+  border: 1px solid #35352d45;
+  border-radius: 50%;
+  background: #fbf9f1;
+  color: #272720;
+}
+.circle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.floating-panel {
+  position: absolute;
+  right: 28px;
+  top: 74px;
+  width: 260px;
+  padding: 22px;
+  background: #fbf8ee;
+  box-shadow: 0 15px 30px #28251822;
+  z-index: 40;
+  font:
+    14px/1.6 Archive Type,
+    monospace;
+}
+.floating-panel:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.floating-panel[hidden] {
+  display: none !important;
+}
+.floating-panel a {
+  text-decoration: none;
+}
+.floating-panel a:hover {
+  text-decoration: underline;
+}
+.floating-panel input,
+.floating-panel select {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #9b9587;
+  background: transparent;
+  font: inherit;
+}
+.floating-panel a[aria-current="page"] {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  body > header.room-toolbar {
+    padding: 12px;
+    height: 105px;
+    align-items: flex-start;
+  }
+  .room-toolbar .room-home {
+    top: 66px;
+    font-size: 20px !important;
+    padding: 3px 14px;
+  }
+  .floating-panel {
+    right: 12px;
+    top: 60px;
+    max-width: calc(100vw - 24px);
+  }
+}

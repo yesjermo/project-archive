@@ -1,0 +1,466 @@
+/* Personal collage, graphite footer and motion cursor. */
+.sketch-footer {
+  position: relative !important;
+  inset: auto !important;
+  width: min(100% - 40px, 1100px) !important;
+  margin: 70px auto 20px !important;
+  padding: 0 0 24px !important;
+  background: none !important;
+  border: 0 !important;
+  text-align: center;
+  color: #403f39;
+}
+.sketch-footer svg {
+  display: block;
+  width: 100%;
+  height: 100px;
+  opacity: 0.75;
+}
+.sketch-footer p {
+  font-size: 13px !important;
+}
+.sketch-footer nav {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.sound-toggle {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: 90;
+  background: #f8f6ed;
+  border: 1px solid #bcbab2;
+  border-radius: 30px;
+  padding: 10px 14px;
+  font: 12px Arial;
+  color: #25251f;
+}
+.motion-cursor {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid white;
+  border-radius: 50%;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transform: translate(-100px, -100px);
+  transition:
+    width 0.15s,
+    height 0.15s;
+  display: none;
+}
+.motion-cursor:after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.motion-cursor.over {
+  width: 52px;
+  height: 52px;
+}
+.motion-cursor.down {
+  width: 23px;
+  height: 23px;
+}
+@media (pointer: fine) {
+  body.cursor-active,
+  body.cursor-active a,
+  body.cursor-active button {
+    cursor: none;
+  }
+  .cursor-active .motion-cursor {
+    display: block;
+  }
+}
+.page-index {
+  background: #f9f8f4 !important;
+}
+.page-index:before {
+  opacity: 0.08 !important;
+}
+.collage-home {
+  max-width: 1250px !important;
+  margin: 110px auto 0 !important;
+  padding: 0 30px !important;
+}
+.folio {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.collage-board {
+  position: relative;
+  height: 850px;
+  margin-top: 35px;
+}
+.collage-board > svg {
+  position: absolute;
+  left: 0;
+  top: 130px;
+  width: 100%;
+  height: 550px;
+  opacity: 0.5;
+  transform: rotate(-14deg);
+  stroke-width: 0.4;
+}
+.collage-title {
+  position: absolute;
+  z-index: 4;
+  left: 29%;
+  top: 32%;
+  width: 43%;
+  text-align: center;
+  background: #f9f8f4e8;
+  padding: 28px 10px;
+  transform: rotate(-2deg);
+}
+.collage-title h1 {
+  font-family: Arial, sans-serif !important;
+  font-size: clamp(54px, 8vw, 112px) !important;
+  font-weight: 900;
+  line-height: 0.83;
+  letter-spacing: -0.075em;
+  margin: 18px 0 27px !important;
+  filter: url(#ink-print);
+}
+.collage-title p {
+  font-size: 12px;
+}
+.collage-title .primary {
+  display: inline-block;
+  background: #24241f;
+  color: white;
+  border-radius: 25px;
+  padding: 13px 22px;
+  font-size: 13px;
+}
+.scrap {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  transition: transform 0.25s;
+  max-width: none !important;
+}
+.scrap:hover,
+.scrap:focus-visible {
+  transform: rotate(0) scale(1.06);
+  z-index: 5;
+}
+.scrap img {
+  display: block;
+  width: 100%;
+  max-height: 270px;
+  object-fit: contain;
+  box-shadow: 1px 4px 8px #2222;
+}
+.scrap span {
+  display: block;
+  font-size: 10px;
+  margin-top: 7px;
+  color: #484840;
+}
+.scrap-0 {
+  width: 23%;
+  left: 5%;
+  top: 5%;
+  transform: rotate(-8deg);
+}
+.scrap-1 {
+  width: 17%;
+  right: 8%;
+  top: 1%;
+  transform: rotate(6deg);
+}
+.scrap-2 {
+  width: 13%;
+  left: 42%;
+  top: 1%;
+  transform: rotate(-4deg);
+}
+.scrap-3 {
+  width: 20%;
+  left: 0;
+  top: 39%;
+  transform: rotate(5deg);
+}
+.scrap-4 {
+  width: 19%;
+  right: 1%;
+  top: 43%;
+  transform: rotate(-5deg);
+}
+.scrap-5 {
+  width: 24%;
+  left: 32%;
+  bottom: 2%;
+  transform: rotate(4deg);
+}
+.scrap-6 {
+  width: 15%;
+  left: 10%;
+  bottom: 8%;
+  transform: rotate(-13deg);
+}
+.scrap-6 img {
+  clip-path: ellipse(45% 43% at 50% 50%);
+  box-shadow: none;
+}
+.scrap-7 {
+  width: 12%;
+  right: 20%;
+  bottom: 0;
+  transform: rotate(-8deg);
+}
+.collage-note {
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+  font-size: 12px;
+  transform: rotate(-5deg);
+}
+.home-index {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #aaa;
+  padding-top: 24px;
+  font-size: 13px;
+}
+.portrait-study {
+  margin: 0 !important;
+  min-width: 0;
+}
+.portrait-study canvas,
+.portrait-study img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: white;
+}
+.portrait-study [hidden] {
+  display: none !important;
+}
+.portrait-study figcaption {
+  font-size: 11px;
+  margin: 10px 0;
+}
+.portrait-modes {
+  display: flex;
+  gap: 8px;
+}
+.portrait-modes button {
+  border: 1px solid #bbb;
+  border-radius: 25px;
+  padding: 10px 16px;
+  background: #f9f7ef;
+  font: 12px Arial;
+}
+.portrait-modes button[aria-pressed="true"] {
+  background: #25251f;
+  color: white;
+}
+.page-about .about-columns {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.page-about .terminal-about {
+  max-width: 1000px;
+}
+.page-about .terminal-about h1 {
+  font-family: Arial !important;
+}
+@media (max-width: 650px) {
+  .collage-home {
+    padding: 0 16px !important;
+    margin-top: 100px !important;
+  }
+  .collage-board {
+    height: 650px;
+  }
+  .collage-title {
+    left: 17%;
+    width: 66%;
+    top: 32%;
+  }
+  .collage-title h1 {
+    font-size: 66px !important;
+  }
+  .scrap-0 {
+    width: 34%;
+    left: 0;
+  }
+  .scrap-1 {
+    width: 25%;
+    right: 0;
+  }
+  .scrap-2 {
+    width: 19%;
+    left: 43%;
+    top: 5%;
+  }
+  .scrap-3 {
+    width: 24%;
+    top: 40%;
+    left: 0;
+  }
+  .scrap-4 {
+    width: 26%;
+    right: 0;
+    top: 54%;
+  }
+  .scrap-5 {
+    width: 36%;
+    left: 23%;
+    bottom: 4%;
+  }
+  .scrap-6 {
+    width: 24%;
+    left: 0;
+    bottom: 12%;
+  }
+  .scrap-7 {
+    width: 18%;
+    right: 2%;
+    bottom: 0;
+  }
+  .collage-note {
+    left: 20%;
+    bottom: 27%;
+    font-size: 10px;
+  }
+  .home-index {
+    flex-direction: column;
+  }
+  .page-about .about-columns {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .sketch-footer {
+    margin-top: 40px !important;
+  }
+  .sketch-footer nav {
+    gap: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scrap,
+  .motion-cursor {
+    transition: none;
+  }
+}
+
+/* Introduction: reference-inspired writing / tilted portrait composition. */
+.home-introduction {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 65px;
+  align-items: center;
+  background: #151614;
+  color: #f3f1e9;
+  margin: 0 0 55px;
+  padding: 42px 65px;
+  min-height: 320px;
+  text-align: left;
+}
+.home-introduction .intro-writing {
+  max-width: 530px;
+}
+.home-introduction h2 {
+  font:
+    700 30px/1.2 Arial,
+    sans-serif !important;
+  letter-spacing: -1px !important;
+  text-transform: none !important;
+  margin: 0 0 15px !important;
+  color: #f3f1e9 !important;
+  filter: none !important;
+}
+.home-introduction h2 span {
+  font:
+    italic 15px/1.5 Arial,
+    sans-serif !important;
+  letter-spacing: 0;
+  color: #aaa99e;
+}
+.home-introduction p {
+  font:
+    14px/1.8 Arial,
+    sans-serif !important;
+  color: #f3f1e9 !important;
+  margin: 0 0 14px !important;
+}
+.home-introduction .ink-underline {
+  text-decoration: underline;
+  text-decoration-color: #975d51;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.home-introduction .intro-signoff {
+  margin-bottom: 0 !important;
+}
+.home-introduction .intro-signoff em {
+  font-size: 23px;
+  font-weight: 600;
+}
+.intro-polaroid {
+  margin: 0 !important;
+  transform: rotate(4deg);
+  filter: drop-shadow(0 5px 7px #0005);
+}
+.polaroid-crop {
+  width: 210px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.intro-polaroid .polaroid-crop img {
+  position: absolute !important;
+  width: 389px !important;
+  max-width: none !important;
+  height: auto !important;
+  left: -83px;
+  top: -124px;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.page-index .folio {
+  text-align: center;
+}
+@media (max-width: 650px) {
+  .home-introduction {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 25px;
+    margin-bottom: 35px;
+  }
+  .home-introduction h2 {
+    font-size: 28px !important;
+  }
+  .home-introduction h2 span {
+    display: block;
+    margin-top: 6px;
+  }
+  .intro-polaroid {
+    justify-self: center;
+  }
+  .home-introduction .intro-writing {
+    max-width: none;
+  }
+}

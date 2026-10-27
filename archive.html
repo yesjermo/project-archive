@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Archive | Archive Dumps</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/editorial.css" />
+    <link rel="stylesheet" href="css/archive-room.css" />
+    <script src="js/main.js" defer></script>
+    <script src="js/archive-room.js" defer></script>
+    <link rel="stylesheet" href="css/print-finish.css" />
+    <script src="js/print-finish.js" defer></script>
+    <link rel="stylesheet" href="css/objects.css" />
+    <link rel="stylesheet" href="css/refinement.css" />
+    <link rel="stylesheet" href="css/personal.css" />
+    <script src="js/personal.js" defer></script>
+  </head>
+  <body class="archive-room" id="top">
+    <a class="skip" href="#main">Skip to archive</a>
+    <header class="room-toolbar">
+      <div class="view-switch" role="group" aria-label="Archive view">
+        <button
+          id="paper-view"
+          class="circle"
+          title="Paper view"
+          aria-label="Paper view"
+          aria-pressed="true"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 5v15M12 5C9 3 5 3 2 5v14c3-2 7-2 10 1 3-3 7-3 10-1V5c-3-2-7-2-10 0Z"
+            />
+          </svg>
+        </button>
+        <button
+          id="orbit-view"
+          class="circle"
+          title="Orbit view"
+          aria-label="Orbit view"
+          aria-pressed="false"
+        >
+          <svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-35 12 12)" />
+            <ellipse cx="12" cy="12" rx="5" ry="10" transform="rotate(-35 12 12)" />
+            <circle cx="12" cy="12" r="2" />
+          </svg>
+        </button>
+      </div>
+      <a class="room-home" href="index.html">my favourite archives</a>
+      <div class="room-actions">
+        <button
+          id="search-toggle"
+          class="circle"
+          aria-label="Search archive"
+          title="Search archive"
+          aria-expanded="false"
+          aria-controls="search-panel"
+        >
+          <svg viewBox="0 0 24 24">
+            <circle cx="10" cy="10" r="6" />
+            <path d="m15 15 6 6" />
+          </svg></button
+        ><button
+          id="menu-toggle"
+          class="circle"
+          aria-label="Open navigation"
+          title="Navigation"
+          aria-expanded="false"
+          aria-controls="room-menu"
+        >
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+    </header>
+    <nav id="room-menu" class="floating-panel" hidden aria-label="Main navigation">
+      <a href="index.html">Home</a><a href="archive.html" aria-current="page">Archive</a
+      ><a href="listening.html">Listening room</a><a href="playroom.html">Playroom</a
+      ><a href="about.html">About</a>
+    </nav>
+    <form id="search-panel" class="floating-panel search-panel" hidden>
+      <label for="archive-search">Find something</label
+      ><input
+        id="archive-search"
+        name="q"
+        type="search"
+        placeholder="Title or tag"
+      /><label for="archive-category">Collection</label
+      ><select id="archive-category" name="category">
+        <option value="all">Everything</option>
+        <option value="photos">Photos</option>
+        <option value="objects">Objects</option>
+        <option value="notes">Notes</option>
+        <option value="music">Music</option></select
+      ><button type="submit">Find entries</button
+      ><button type="button" id="clear-search">Clear filters</button>
+    </form>
+    <main id="main">
+      <div class="room-title">
+        <h1>archive dumps</h1>
+        <p id="collection-count">4 entries / personal archive</p>
+      </div>
+      <div class="archive-stage" id="archive-stage">
+        <div id="paper-scene" class="paper-scene">
+          <button id="book-cover" class="book-cover" aria-label="Open archive book">
+            <span class="cover-small">a personal collection</span
+            ><strong>ARCHIVE<br /><span>DUMPS.</span></strong
+            ><span class="cover-hand">my favourite archives</span
+            ><span class="cover-bottom"
+              >PHOTOS / OBJECTS / NOTES / SOUNDS<br />Open the book</span
+            >
+          </button>
+          <div id="archive-book" class="archive-book" hidden>
+            <article class="sheet sheet-left" id="sheet-left"></article>
+            <article class="sheet sheet-right" id="sheet-right"></article>
+            <button
+              class="page-edge prev-edge"
+              id="edge-prev"
+              aria-label="Previous entry"
+              title="Previous entry"
+            ></button
+            ><button
+              class="page-edge next-edge"
+              id="edge-next"
+              aria-label="Next entry"
+              title="Next entry"
+            ></button>
+          </div>
+        </div>
+        <div
+          id="orbit-scene"
+          class="orbit-scene"
+          tabindex="0"
+          aria-label="Object orbit. Drag to rotate. Arrow keys rotate; plus and minus zoom."
+          hidden
+        >
+          <div class="orbit-center" aria-hidden="true">
+            EVERY<br /><span>LITTLE</span><br />THING.
+          </div>
+          <div id="orbit-items"></div>
+        </div>
+        <p id="empty-archive" hidden>
+          No entries match.<br /><button id="empty-reset">Show everything</button>
+        </p>
+      </div>
+      <label class="jump-label" for="entry-jump"
+        >Find a keepsake
+        <select id="entry-jump" aria-label="Choose archive entry"></select></label
+      ><button id="spin-toggle" class="spin-toggle" hidden>Pause orbit Ⅱ</button>
+      <div id="orbit-controls" hidden>
+        <button id="orbit-out" aria-label="Zoom out">−</button
+        ><button id="orbit-reset">Reset orbit</button
+        ><button id="orbit-in" aria-label="Zoom in">+</button
+        ><small>drag to turn · arrows to rotate · + / − to zoom</small>
+      </div>
+      <div class="layout-choice" role="group" aria-label="Page layout">
+        <span>on paper:</span
+        ><button data-layout="pencil" aria-pressed="true">Pencil</button
+        ><button data-layout="original" aria-pressed="false">Original</button>
+      </div>
+      <div class="archive-bottom">
+        <p id="entry-status" aria-live="polite">A book of small memories.</p>
+        <div class="round-controls" aria-label="Archive controls">
+          <button
+            id="previous"
+            class="circle solid"
+            aria-label="Previous entry"
+            title="Previous entry"
+          >
+            <svg viewBox="0 0 24 24"><path d="m14 5-7 7 7 7" /></svg></button
+          ><button
+            id="next"
+            class="circle solid"
+            aria-label="Next entry"
+            title="Next entry"
+          >
+            <svg viewBox="0 0 24 24"><path d="m10 5 7 7-7 7" /></svg></button
+          ><a
+            id="read-entry"
+            class="circle solid"
+            href="entry.html?id=night-walk&amp;from=archive"
+            aria-label="Read selected entry"
+            title="Read entry"
+            ><svg viewBox="0 0 24 24">
+              <path d="M14 4h6v6M20 4l-10 10M10 4H4v16h16v-6" /></svg></a
+          ><button
+            id="more-toggle"
+            class="circle solid"
+            aria-label="More archive options"
+            title="More options"
+            aria-expanded="false"
+            aria-controls="archive-options"
+          >
+            <svg viewBox="0 0 24 24">
+              <circle cx="5" cy="12" r="1" />
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+            </svg>
+          </button>
+        </div>
+        <div id="archive-options" class="archive-options" hidden>
+          <button id="close-book">Close book</button
+          ><button id="pause-orbit" aria-pressed="false">Pause orbit</button
+          ><label class="local-photo"
+            >Choose image for this entry<input
+              type="file"
+              id="entry-photo"
+              accept="image/*" /></label
+          ><button id="remove-photo">Remove local image</button>
+          <p>Images stay in this tab and reset on reload.</p>
+        </div>
+        <p class="handwritten" id="view-hint">a little collection, one page at a time</p>
+      </div>
+      <noscript
+        ><p>
+          <a href="entry.html?id=night-walk">Night walk</a> /
+          <a href="entry.html?id=ticket-stub">Ticket stub</a> /
+          <a href="entry.html?id=unfinished-thought">Unfinished thought</a> /
+          <a href="entry.html?id=on-repeat">On repeat</a>
+        </p></noscript
+      >
+    </main>
+    <footer class="sketch-footer">
+      <svg
+        viewBox="0 0 900 100"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.3"
+        aria-hidden="true"
+      >
+        <path
+          d="M20 70Q110 64 180 70T350 67M50 65l10-28 11 28-25-16h29L50 65M250 78q-30-40-8-45 18-3 10 22-8-25 10-25 24 8-12 48M360 68q30-30 60-3t60-4m-10-8 12 8-11 10M565 70V25l50 6v40l-50-1m25-42v42M720 70q-30-20-8-35 5-24 20-6 25-10 20 13 25 15-1 24-11 25-25 4Zm12-27q-9 1-4 10 12 3 10-7M790 64q30-10 65 2"
+        />
+      </svg>
+      <p>my favourite archives / a little collection, still growing.</p>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a><a href="archive.html">Archive</a
+        ><a href="about.html#credits">About + credits</a><a href="#top">Back to top ↑</a>
+      </nav>
+    </footer>
+  </body>
+</html>

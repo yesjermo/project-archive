@@ -1,0 +1,97 @@
+@font-face {
+  font-family: Archive Display;
+  src: url("../fonts/archivo.ttf") format("truetype");
+  font-weight: 400 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: Archive Type;
+  src: url("../fonts/typewriter.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: Archive Hand;
+  src: url("../fonts/hand.ttf") format("truetype");
+  font-weight: 400 700;
+  font-display: swap;
+}
+:root {
+  --paper: #efede5;
+  --ink: #24241f;
+  --line: #c8c4b9;
+  --accent: #a13e32;
+}
+body {
+  background: var(--paper);
+}
+h1,
+h2,
+.hero-copy h1 {
+  font-family:
+    Archive Display,
+    Arial,
+    sans-serif;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+h1 {
+  line-height: 0.95;
+}
+header nav a,
+footer,
+#archive-form,
+.hero-caption,
+.hero-tools,
+.featured > span,
+.study-caption,
+.controls {
+  font-family:
+    Archive Type,
+    "Courier New",
+    monospace;
+}
+header p {
+  font-family:
+    Archive Type,
+    monospace;
+  font-size: 18px;
+}
+.hero-copy h1 {
+  font-size: clamp(64px, 7vw, 96px);
+  line-height: 0.88;
+}
+.hero-copy h1::first-line {
+  letter-spacing: -0.04em;
+}
+.play-intro em {
+  font-family:
+    Archive Hand,
+    cursive;
+  text-transform: none;
+  font-size: 1.1em;
+  letter-spacing: 0;
+}
+.play-intro h1 {
+  font-size: clamp(36px, 5vw, 70px);
+}
+.material-tabs {
+  grid-template-columns: repeat(2, 1fr);
+}
+.handwritten {
+  font-family:
+    Archive Hand,
+    cursive;
+  font-size: 27px;
+  font-weight: 400;
+}
+.playroom-link a {
+  font-family:
+    Archive Hand,
+    cursive;
+  font-size: 36px;
+}
+.page-entry h1 {
+  font-size: clamp(34px, 7vw, 64px);
+  overflow-wrap: anywhere;
+}

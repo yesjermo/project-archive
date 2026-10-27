@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Playroom | Archive Dumps</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/playroom.css" />
+    <script src="js/playroom.js" defer></script>
+    <link rel="stylesheet" href="css/editorial.css" />
+    <link rel="stylesheet" href="css/print-finish.css" />
+    <script src="js/print-finish.js" defer></script>
+    <link rel="stylesheet" href="css/objects.css" />
+    <link rel="stylesheet" href="css/shared-nav.css" />
+    <script src="js/shared-nav.js" defer></script>
+    <link rel="stylesheet" href="css/refinement.css" />
+    <link rel="stylesheet" href="css/personal.css" />
+    <script src="js/personal.js" defer></script>
+  </head>
+  <body id="top" class="page-playroom">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="room-toolbar">
+      <div class="view-switch" role="group" aria-label="Archive view">
+        <button
+          id="paper-view"
+          class="circle"
+          title="Paper view"
+          aria-label="Paper view"
+          aria-pressed="true"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 5v15M12 5C9 3 5 3 2 5v14c3-2 7-2 10 1 3-3 7-3 10-1V5c-3-2-7-2-10 0Z"
+            />
+          </svg>
+        </button>
+        <button
+          id="orbit-view"
+          class="circle"
+          title="Orbit view"
+          aria-label="Orbit view"
+          aria-pressed="false"
+        >
+          <svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-35 12 12)" />
+            <ellipse cx="12" cy="12" rx="5" ry="10" transform="rotate(-35 12 12)" />
+            <circle cx="12" cy="12" r="2" />
+          </svg>
+        </button>
+      </div>
+      <a class="room-home" href="index.html">my favourite archives</a>
+      <div class="room-actions">
+        <button
+          id="search-toggle"
+          class="circle"
+          aria-label="Search archive"
+          title="Search archive"
+          aria-expanded="false"
+          aria-controls="search-panel"
+        >
+          <svg viewBox="0 0 24 24">
+            <circle cx="10" cy="10" r="6" />
+            <path d="m15 15 6 6" />
+          </svg></button
+        ><button
+          id="menu-toggle"
+          class="circle"
+          aria-label="Open navigation"
+          title="Navigation"
+          aria-expanded="false"
+          aria-controls="room-menu"
+        >
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+    </header>
+    <nav id="room-menu" class="floating-panel" hidden aria-label="Main navigation">
+      <a href="index.html">Home</a><a href="archive.html">Archive</a
+      ><a href="listening.html">Listening room</a><a href="playroom.html">Playroom</a
+      ><a href="about.html">About</a>
+    </nav>
+    <form
+      action="archive.html"
+      id="search-panel"
+      class="floating-panel search-panel"
+      hidden
+    >
+      <label for="archive-search">Find something</label
+      ><input
+        id="archive-search"
+        name="q"
+        type="search"
+        placeholder="Title or tag"
+      /><label for="archive-category">Collection</label
+      ><select id="archive-category" name="category">
+        <option value="all">Everything</option>
+        <option value="photos">Photos</option>
+        <option value="objects">Objects</option>
+        <option value="notes">Notes</option>
+        <option value="music">Music</option></select
+      ><button type="submit">Find entries</button
+      ><button type="button" id="clear-search">Clear filters</button>
+    </form>
+
+    <main id="main">
+      <div class="play-intro">
+        <h1>an archive,<br /><em>in your hands.</em></h1>
+        <p>
+          Small experiments in keeping things.<br />Pick a material. See what it does.
+        </p>
+      </div>
+      <div class="material-tabs" role="tablist" aria-label="Choose an experiment">
+        <button
+          id="tab-metal"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-metal"
+          data-mode="metal"
+        >
+          Metal <span>draw a trace</span>
+        </button>
+        <button
+          id="tab-fold"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-fold"
+          tabindex="-1"
+          data-mode="fold"
+        >
+          Scrap <span>crumple a note</span>
+        </button>
+      </div>
+      <section id="panel-metal" role="tabpanel" aria-labelledby="tab-metal">
+        <div class="workbench metal-bench">
+          <canvas
+            id="metal"
+            width="760"
+            height="440"
+            aria-label="Metal drawing surface. Drag to draw embossed strokes. Use Add mark for a keyboard-accessible drawing."
+          ></canvas
+          ><span class="bench-note">a trace is a kind of memory</span>
+        </div>
+        <div class="controls">
+          <p>Drag across the silver to leave a mark.</p>
+          <label
+            >Brush <input id="brush" type="range" min="5" max="28" value="12" /></label
+          ><button id="mark">Add mark</button><button id="clear-metal">Clear</button
+          ><button id="save-metal">Save image</button>
+        </div>
+      </section>
+      <section id="panel-fold" role="tabpanel" aria-labelledby="tab-fold" hidden>
+        <div class="workbench fold-bench">
+          <canvas
+            id="fold"
+            aria-label="A paper note that folds as you drag vertically, or use the Crumple slider below."
+          ></canvas
+          ><span class="bench-note">some things are worth unfolding</span>
+        </div>
+        <div class="controls">
+          <p>Drag up to crumple. Drag down to unfold.</p>
+          <label
+            >Crumple
+            <input id="crumple" type="range" min="0" max="100" value="0" /></label
+          ><button id="unfold">Unfold</button
+          ><label
+            >Note <input id="note-text" maxlength="60" value="things i almost forgot"
+          /></label>
+        </div>
+      </section>
+      <p class="study-caption">
+        Material studies / 2026
+        <span
+          >Metallic marks and crumpled notes. Find the book and orbit in the
+          Archive.</span
+        >
+      </p>
+    </main>
+    <footer class="sketch-footer">
+      <svg
+        viewBox="0 0 900 100"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.3"
+        aria-hidden="true"
+      >
+        <path
+          d="M20 70Q110 64 180 70T350 67M50 65l10-28 11 28-25-16h29L50 65M250 78q-30-40-8-45 18-3 10 22-8-25 10-25 24 8-12 48M360 68q30-30 60-3t60-4m-10-8 12 8-11 10M565 70V25l50 6v40l-50-1m25-42v42M720 70q-30-20-8-35 5-24 20-6 25-10 20 13 25 15-1 24-11 25-25 4Zm12-27q-9 1-4 10 12 3 10-7M790 64q30-10 65 2"
+        />
+      </svg>
+      <p>my favourite archives / a little collection, still growing.</p>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a><a href="archive.html">Archive</a
+        ><a href="about.html#credits">About + credits</a><a href="#top">Back to top ↑</a>
+      </nav>
+    </footer>
+  </body>
+</html>

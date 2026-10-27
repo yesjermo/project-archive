@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About | Archive Dumps</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+    <script src="js/interaction.js" defer></script>
+    <link rel="stylesheet" href="css/editorial.css" />
+    <link rel="stylesheet" href="css/print-finish.css" />
+    <script src="js/print-finish.js" defer></script>
+    <link rel="stylesheet" href="css/objects.css" />
+    <link rel="stylesheet" href="css/shared-nav.css" />
+    <script src="js/shared-nav.js" defer></script>
+    <link rel="stylesheet" href="css/refinement.css" />
+    <link rel="stylesheet" href="css/personal.css" />
+    <script src="js/personal.js" defer></script>
+  </head>
+  <body id="top" class="page-about">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="room-toolbar">
+      <div class="view-switch" role="group" aria-label="Archive view">
+        <button
+          id="paper-view"
+          class="circle"
+          title="Paper view"
+          aria-label="Paper view"
+          aria-pressed="true"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 5v15M12 5C9 3 5 3 2 5v14c3-2 7-2 10 1 3-3 7-3 10-1V5c-3-2-7-2-10 0Z"
+            />
+          </svg>
+        </button>
+        <button
+          id="orbit-view"
+          class="circle"
+          title="Orbit view"
+          aria-label="Orbit view"
+          aria-pressed="false"
+        >
+          <svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-35 12 12)" />
+            <ellipse cx="12" cy="12" rx="5" ry="10" transform="rotate(-35 12 12)" />
+            <circle cx="12" cy="12" r="2" />
+          </svg>
+        </button>
+      </div>
+      <a class="room-home" href="index.html">my favourite archives</a>
+      <div class="room-actions">
+        <button
+          id="search-toggle"
+          class="circle"
+          aria-label="Search archive"
+          title="Search archive"
+          aria-expanded="false"
+          aria-controls="search-panel"
+        >
+          <svg viewBox="0 0 24 24">
+            <circle cx="10" cy="10" r="6" />
+            <path d="m15 15 6 6" />
+          </svg></button
+        ><button
+          id="menu-toggle"
+          class="circle"
+          aria-label="Open navigation"
+          title="Navigation"
+          aria-expanded="false"
+          aria-controls="room-menu"
+        >
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+    </header>
+    <nav id="room-menu" class="floating-panel" hidden aria-label="Main navigation">
+      <a href="index.html">Home</a><a href="archive.html">Archive</a
+      ><a href="listening.html">Listening room</a><a href="playroom.html">Playroom</a
+      ><a href="about.html">About</a>
+    </nav>
+    <form
+      action="archive.html"
+      id="search-panel"
+      class="floating-panel search-panel"
+      hidden
+    >
+      <label for="archive-search">Find something</label
+      ><input
+        id="archive-search"
+        name="q"
+        type="search"
+        placeholder="Title or tag"
+      /><label for="archive-category">Collection</label
+      ><select id="archive-category" name="category">
+        <option value="all">Everything</option>
+        <option value="photos">Photos</option>
+        <option value="objects">Objects</option>
+        <option value="notes">Notes</option>
+        <option value="music">Music</option></select
+      ><button type="submit">Find entries</button
+      ><button type="button" id="clear-search">Clear filters</button>
+    </form>
+
+    <main id="main" class="terminal-about">
+      <div class="terminal-bar">
+        <span>ALLAN / PERSONAL ARCHIVE</span><span>about.txt</span>
+      </div>
+      <p class="terminal-command">
+        &gt; open about.txt<span class="type-cursor" aria-hidden="true">_</span>
+      </p>
+      <h1>hi, i'm allan.</h1>
+      <p class="typed-intro">a small place for the things i want to remember.</p>
+      <div class="about-columns">
+        <figure class="portrait-study">
+          <canvas
+            id="ascii-portrait"
+            width="640"
+            height="850"
+            role="img"
+            aria-label="Black-and-white ASCII portrait of Allan beside a television"
+          ></canvas
+          ><img
+            id="portrait-original"
+            src="assets/collection/about-original.jpg"
+            alt="Allan beside a CRT television"
+            hidden
+          />
+          <figcaption>01 / me, somewhere in the archive</figcaption>
+          <div class="portrait-modes" role="group" aria-label="Portrait style">
+            <button data-portrait="ascii" aria-pressed="true">ASCII</button
+            ><button data-portrait="bit" aria-pressed="false">1-bit</button
+            ><button data-portrait="original" aria-pressed="false">Original</button>
+          </div>
+        </figure>
+        <section>
+          <h2>[01] / read me</h2>
+          <p>
+            This is my personal archive: photos, objects, sketches and music collected
+            along the way.
+          </p>
+          <p>
+            Some things are finished. Some are just ideas on paper. I keep them here
+            because I want to come back to them.
+          </p>
+          <p class="terminal-note">status: still collecting...</p>
+        </section>
+      </div>
+      <section>
+        <h2>[02] / contents</h2>
+        <ul class="terminal-list">
+          <li>
+            <a href="archive.html?view=paper">./paper — turn through the collection</a>
+          </li>
+          <li>
+            <a href="archive.html?view=orbit">./orbit — move through the objects</a>
+          </li>
+          <li><a href="listening.html">./listening — things on repeat</a></li>
+        </ul>
+      </section>
+      <section id="credits">
+        <h2>[03] / credits</h2>
+        <p>
+          Personal sketchbook and design photos sit alongside collected visual references.
+          Source links and credits appear inside each archive entry. Demo tickets are
+          fictional keepsakes.
+        </p>
+        <p>
+          Website inspiration: <a href="https://claunicornios.com/">claunicornios.com</a>.
+          Typography and paper direction: the supplied Sundae School references.
+        </p>
+      </section>
+      <p class="terminal-end">&gt; end of file <span aria-hidden="true">_</span></p>
+      <a class="terminal-return" href="archive.html"
+        >[ return to my favourite archives ]</a
+      >
+    </main>
+    <footer class="sketch-footer">
+      <svg
+        viewBox="0 0 900 100"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.3"
+        aria-hidden="true"
+      >
+        <path
+          d="M20 70Q110 64 180 70T350 67M50 65l10-28 11 28-25-16h29L50 65M250 78q-30-40-8-45 18-3 10 22-8-25 10-25 24 8-12 48M360 68q30-30 60-3t60-4m-10-8 12 8-11 10M565 70V25l50 6v40l-50-1m25-42v42M720 70q-30-20-8-35 5-24 20-6 25-10 20 13 25 15-1 24-11 25-25 4Zm12-27q-9 1-4 10 12 3 10-7M790 64q30-10 65 2"
+        />
+      </svg>
+      <p>my favourite archives / a little collection, still growing.</p>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a><a href="archive.html">Archive</a
+        ><a href="about.html#credits">About + credits</a><a href="#top">Back to top ↑</a>
+      </nav>
+    </footer>
+  </body>
+</html>

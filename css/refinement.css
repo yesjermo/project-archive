@@ -1,0 +1,176 @@
+html body,
+html body *:not(svg):not(path):not(ellipse):not(circle) {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+h1,
+h2,
+h3 {
+  filter: none !important;
+  text-shadow: none !important;
+}
+.ascii-folder {
+  font-family: monospace !important;
+}
+.spotify-cd {
+  background-image:
+    radial-gradient(
+      circle,
+      transparent 0 20%,
+      #cacbc5 20.5% 22%,
+      transparent 22.5% 65%,
+      #a9aaa3 66%,
+      #f4f3ed 67%,
+      #92938f 68%,
+      transparent 69%
+    ),
+    conic-gradient(
+      from 25deg,
+      #c4c6c2,
+      #f6f5ef,
+      #babfbe,
+      #e6d9dc,
+      #d9e4dd,
+      #faf9f2,
+      #b7b9ba,
+      #f2eee5,
+      #c4c6c2
+    );
+  border: 1px solid #9a9c98;
+  box-shadow:
+    0 2px 1px #fff inset,
+    0 15px 25px #24231d30;
+}
+.spotify-cd:before {
+  content: "";
+  position: absolute;
+  inset: 23%;
+  border-radius: 50%;
+  background: url("../assets/collection/spotify-album.jpg") center/cover;
+  box-shadow: 0 0 0 1px #7778;
+}
+.spotify-cd i {
+  z-index: 3;
+  background: #e9e5dc;
+  border: 5px solid #aaaaa3;
+  box-shadow: 0 0 0 7px #ecece580;
+}
+.spotify-cd span {
+  position: absolute;
+  top: 12%;
+  font-size: 9px !important;
+  background: transparent;
+}
+.spotify-cd small {
+  position: absolute;
+  bottom: 12%;
+  font-size: 9px !important;
+  background: transparent;
+}
+.spotify-cd b {
+  display: none;
+}
+.sheet-art img,
+.pencil-layout .sheet-art img {
+  max-height: 310px !important;
+  max-width: 100%;
+  width: auto !important;
+  object-fit: contain;
+  clip-path: none !important;
+  transform: rotate(-2deg) !important;
+}
+.sheet-art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sheet-art[data-item="blur"] img,
+.sheet-art[data-item="dylan"] img,
+.sheet-art[data-item="punch-drunk-love"] img {
+  height: 310px !important;
+  aspect-ratio: auto;
+  box-shadow: 2px 4px 5px #2222 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+.sheet-art[data-item="fencing"] img {
+  height: 300px !important;
+  transform: rotate(2deg) !important;
+}
+.orbit-item[data-item="fencing"] .orbit-front {
+  width: 100%;
+  height: 105px;
+  left: 0;
+  top: 0;
+  transform: none;
+}
+.sheet-art[data-item="wave-to-earth"] {
+  width: 100% !important;
+  margin: 16px auto !important;
+}
+.sheet-art[data-item="wave-to-earth"] img {
+  width: 100% !important;
+  height: auto !important;
+}
+.page-entry[data-item="punch-drunk-love"] #entry-media img {
+  width: min(100%, 430px) !important;
+  aspect-ratio: 2/3;
+  object-fit: contain;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.page-entry[data-item="fencing"] #entry-media img {
+  height: auto;
+  max-height: 600px;
+  width: auto;
+  transform: none;
+}
+/* Loose collage marks around original sketchbook material. */
+.sheet-art[data-surface="diary"] {
+  background-image: url("../assets/collection/collage-reference.jpg") !important;
+  background-size: cover !important;
+  background-position: center;
+  min-height: 280px;
+  isolation: isolate;
+}
+.sheet-art[data-surface="diary"] img {
+  width: 80% !important;
+  max-height: 260px !important;
+  transform: rotate(-5deg) !important;
+  border: 6px solid #fff !important;
+  box-shadow: 3px 6px 10px #2224 !important;
+}
+.sheet-art[data-surface="diary"]:after {
+  content: "✳  +  ♡  +  ♪";
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+  font-size: 25px;
+  letter-spacing: 12px;
+  transform: rotate(-8deg);
+}
+@media (max-width: 700px) {
+  .sheet-art img,
+  .pencil-layout .sheet-art img {
+    max-height: 220px !important;
+  }
+  .sheet-art[data-item="blur"] img,
+  .sheet-art[data-item="dylan"] img,
+  .sheet-art[data-item="punch-drunk-love"] img,
+  .sheet-art[data-item="fencing"] img {
+    height: 220px !important;
+  }
+  .sheet-art[data-surface="diary"] {
+    min-height: 210px;
+  }
+  .sheet-art[data-surface="diary"] img {
+    max-height: 190px !important;
+  }
+}
+
+html body .ascii-folder {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+.sheet-art[data-item="football"] img {
+  clip-path: ellipse(42.2% 33.8% at 50.2% 50%) !important;
+}
